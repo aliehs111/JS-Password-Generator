@@ -8,7 +8,13 @@ if (pwLength < 8 || pwLength > 128 || isNaN(pwLength) || null) {
   prompt("It must be a whole number between 8 and 128")
 } else {
   prompt("Thank you, your password will be " + pwLength + " characters long");
+  parseInt(pwLength)//I don't know if this is working to convert the string into number
+  
 }
+
+console.log(pwLength)
+  //this is not working to exclude if the user input does not meet criteria. it is always taking first user input
+
 
 //Validating if user wants numeric characters-----------------
 let charTypenum = confirm("Would you like to include numeric characters? Click OK for yes or Cancel for no");
@@ -45,26 +51,42 @@ if (charTypespec == true) {
 
 
 
-//Get variable values to console log-------------
-console.log(pwLength)
+//Get variable values to console log to check if working-------------
+
 console.log(charTypenum)
 console.log(charTypeup)
 console.log(charTypelow)
 console.log(charTypespec)
-  
+ 
+//arrays for criteria-----------
+
+const lengthArray = [] 
+for (let i = 8; i < 129; i++) {
+  lengthArray.push(i)
+}
+
+const numericArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+const upperArr = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z];
+const lowerArr = [a, b, c, d, e, f, g, h, i, J, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z];
+const specArr = ["~", "!", "@", "#", "$", "%", "^", "&", "*","-", "+", "=", "|", ";", ":", ",", ".", "<",">", "?"];
+
+
 //------------//
 
 password = generatePassword();
 document.getElementById("password").value = password;
 document.getElementById("generate").addEventListener('click', copyPassword);
 
+//this function is not working 
 function generatePassword() {
-  var charType = {
-    lowercase: 'abcdefghijklmnopqrstuvwxyz',
-    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    numeric: '0123456789',
-    special: '!@#$%^&*()_+-=[]\{}|;:",./<>?'
-  };
+  var chars = numericArr + upperArr + lowerArr + specArr;
+  var password = "";
+  //if (charTypenum = true, charTypelow = true, charTypeup = true, charTypespec = true) // need to have a different function for every group of answers
+  for (var i = 0; i <= pwLength; i++) {
+    var randomNumber = Math.floor(Math.random() * pwLength);
+    password += chars.substring(randomNumber, randomNumber +1);
+  } 
+
 }
 
 // Get references to the #generate element
