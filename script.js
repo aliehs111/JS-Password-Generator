@@ -1,34 +1,56 @@
 // Assignment code here
 
 //Validating password password length-------------------------
+
 let pwLength = Number(prompt("Please enter desired length of your password.  It must be between 8 and 128 characters"));
-if (pwLength <8 || pwLength >128) {
-  prompt("It must be between 8 and 128 characters")
+
+if (pwLength < 8 || pwLength > 128 || isNaN(pwLength) || null) {
+  prompt("It must be a whole number between 8 and 128")
+} else {
+  prompt("Thank you, your password will be " + pwLength + " characters long");
 }
 
-if (pwLength = isNaN) {
-  prompt("Must be a whole number between 8 and 128")
-}
+//Validating if user wants numeric characters-----------------
+let charTypenum = confirm("Would you like to include numeric characters? Click OK for yes or Cancel for no");
 
-CharTypen = prompt("Would you like to include numeric characters? Click OK for yes or Cancel for no");
-if (CharTypen = true) {
+if (charTypenum == true) {
   alert("Password will include numeric characters");
 } else { 
-  alert("Password will not include numeric characters")
+  alert("Password will NOT include numeric characters")
 }
-  
 
-result = confirm(charTypen)
-charTypeu = prompt("Would you like to include uppercase letters? Click OK for yes or Cancel for no");
-result = confirm(charTypeu)
-charTypel = prompt("Would you like to include lowercase letters? Click OK for yes or Cancel for no");
-result = confirm(charTypel)
-charTypes = prompt("Would you like to include special characters? Click OK for yes or Cancel for no");
-result = confirm(charTypes)
+//Validating if user wants uppercase letters------------
+let charTypeup = confirm("Would you like to include uppercase letters? Click OK for yes or Cancel for no");
+if (charTypeup == true) {
+  alert("Password will include uppercase letters");
+} else { 
+  alert("Password will NOT include uppercase letters")
+}
 
-// conditional response for password length//
+//validating if user wnts lowercase letters-------------
+let charTypelow = confirm("Would you like to include lowercase letters? Click OK for yes or Cancel for no");
+if (charTypelow == true) {
+  alert("Password will include lowecase letters");
+} else { 
+  alert("Password will NOT include lowercase letters")
+}
+
+//Validating if user wants special characters---------------
+let charTypespec = confirm("Would you like to include special characters? Click OK for yes or Cancel for no");
+if (charTypespec == true) {
+  alert("Password will include special characters");
+} else { 
+  alert("Password will NOT include special characters")
+}
 
 
+
+//Get variable values to console log-------------
+console.log(pwLength)
+console.log(charTypenum)
+console.log(charTypeup)
+console.log(charTypelow)
+console.log(charTypespec)
   
 //------------//
 
