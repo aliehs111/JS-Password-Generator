@@ -92,7 +92,7 @@ for (let i = 8; i < 129; i++) {
 //document.getElementById("password").value = password;
 //document.getElementById("generate").addEventListener('click', copyPassword);
 
-//this function is not working 
+
 function generatePassword() {
   let userCriteria = getCriteria()
   let pwarray = []
@@ -125,7 +125,7 @@ function generatePassword() {
     }
 
   }
-  console.log (pwarray)
+  return pwarray.join("")
 }
 
 function getRandom(arr) {
@@ -133,18 +133,6 @@ function getRandom(arr) {
   return arr[randomIndex]
 
 }
-
-
-
-//This is an attempt at generating the password based on the user input which is now in console--------------
-// var chars = numericArr + upperArr + lowerArr + specArr;
-// var password = "";
-//if (charTypenum = true, charTypelow = true, charTypeup = true, charTypespec = true) // need to have a different function for every group of answers
-// for (var i = 0; i <= pwLength; i++) {
-//   var randomNumber = Math.floor(Math.random() * pwLength);
-//   password += chars.substring(randomNumber, randomNumber +1);
-// } 
-
 
 
 // Get references to the #generate element
