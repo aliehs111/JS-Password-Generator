@@ -17,11 +17,11 @@ function getCriteria() {
 
   } else {
     alert("Thank you, your password will be " + pwLength + " characters long");
-
+    console.log(pwLength)
 
   }
 
-  console.log(pwLength)
+ 
   //this is not working to exclude if the user input does not meet criteria. it is always taking first user input even if prompted to choose again
 
 
