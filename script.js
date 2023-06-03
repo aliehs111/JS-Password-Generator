@@ -2,27 +2,25 @@
 
 
 
-const numericArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+const numericArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 const upperArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const lowerArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const specArr = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "-", "+", "=", "|", ";", ":", ",", ".", "<", ">", "?"];
+const inputArr = [];
+let charValid = []
 
 function getCriteria() {
 
   //Validating password password length and converting the string to number.  -------------------------
   let pwLength = Number(prompt("Please enter desired length of your password.  It must be between 8 and 128 characters"));
 
-  if (pwLength < 8 || pwLength > 128 || isNaN(pwLength) || null) {
+  while (pwLength < 8 || pwLength > 128 || isNaN(pwLength) || null) {
     pwLength = Number(prompt("It must be a whole number between 8 and 128"));
 
-  } else {
-    alert("Thank you, your password will be " + pwLength + " characters long");
-    console.log(pwLength)
-
   }
+  alert("Thank you, your password will be " + pwLength + " characters long");
+  console.log(pwLength)
 
- 
-  //this is not working to exclude if the user input does not meet criteria. it is always taking first user input even if prompted to choose again
 
 
   //Validating if user wants numeric characters-----------------
@@ -30,6 +28,8 @@ function getCriteria() {
 
   if (charTypenum == true) {
     alert("Password will include numeric characters");
+    charValid = charValid.concat(numericArr);
+    // console.log(charValid)
   } else {
     alert("Password will NOT include numeric characters");
   }
@@ -38,6 +38,7 @@ function getCriteria() {
   let charTypeup = confirm("Would you like to include uppercase letters? Click OK for yes or Cancel for no");
   if (charTypeup == true) {
     alert("Password will include uppercase letters");
+    charValid = charValid.concat(upperArr)
   } else {
     alert("Password will NOT include uppercase letters");
   }
@@ -46,6 +47,7 @@ function getCriteria() {
   let charTypelow = confirm("Would you like to include lowercase letters? Click OK for yes or Cancel for no");
   if (charTypelow == true) {
     alert("Password will include lowecase letters");
+    charValid = charValid.concat(lowerArr);
   } else {
     alert("Password will NOT include lowercase letters");
   }
@@ -54,6 +56,7 @@ function getCriteria() {
   let charTypespec = confirm("Would you like to include special characters? Click OK for yes or Cancel for no");
   if (charTypespec == true) {
     alert("Password will include special characters");
+    charValid = charValid.concat(specArr);
   } else {
     alert("Password will NOT include special characters");
   }
@@ -96,58 +99,42 @@ for (let i = 8; i < 129; i++) {
 function generatePassword() {
   let userCriteria = getCriteria()
   let pwarray = []
-  for (let i = 0; i <= userCriteria.pwLength; i++) {
-    if (userCriteria.charTypelow) {
-      let char = getRandom(lowerArr)
-      if (!pwarray.includes(char)) {
-        pwarray.push(char)
-      }
-    }
+  
 
-    if (userCriteria.charTypeup) {
-      let char = getRandom(upperArr)
-      if (!pwarray.includes(char)) {
-        pwarray.push(char)
-      }
-    }
-    if (userCriteria.charTypenum) {
-      let char = getRandom(numericArr)
-      if (!pwarray.includes(char)) {
-        pwarray.push(char)
-      }
-    }
 
-    if (userCriteria.charTypespec) {
-      let char = getRandom(specArr)
-      if (!pwarray.includes(char)) {
-        pwarray.push(char)
-      }
-    }
+  for (let i = 1; i <= userCriteria.pwLength; i++) {
+
+    pwarray.push(getRandom(charValid))
+  }
+
+
+  console.log(pwarray)
+  return pwarray.join("")
+
+}
+
+
+
+  function getRandom(arr) {
+    let randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex]
 
   }
-  return pwarray.join("")
-}
-
-function getRandom(arr) {
-  let randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex]
-
-}
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+  // Get references to the #generate element
+  var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
 
-}
+  }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
 
 
