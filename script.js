@@ -60,12 +60,10 @@ function getCriteria() {
   } else {
     alert("Password will NOT include special characters");
   }
-  //Validating if user anwered no to all character types-----------
-  // console.log(charValid.length)
-  // if (charValid.length == 0) {
-  //   alert("you chose no characters")
-  // }
-
+ //Validating if user chooses no character types
+  if (charTypenum == false && charTypeup == false && charTypelow == false && charTypespec == false) {
+    alert("You chose no character types. Please click ok then click the red button to start over")
+  }
 
   //Get variable values to console log to check if working-------------
 
@@ -77,14 +75,12 @@ function getCriteria() {
   return {
     pwLength, charTypenum, charTypeup, charTypelow, charTypespec
   }
+
+  
+
+
 }
 
-//array for how many characters-----------I think this needs to be at the top with the other arrays
-
-// const lengthArray = []
-// for (let i = 8; i < 129; i++) {
-//   lengthArray.push(i)
-// }
 
 
 //------------//
