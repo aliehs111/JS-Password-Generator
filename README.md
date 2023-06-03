@@ -14,3 +14,4 @@ Then the user interacts with a series of prompts to choose yes or no as to wheth
 - The book "Simplified JavaScript for VIPS" by Ebenezer Don provided clarification on key concepts.
 - I used the GitHub issues feature to structure to my approach and remind me to go back and fix some code
 - Endless googling for information looking for a needle in a haystack to answer my questions
+- 
