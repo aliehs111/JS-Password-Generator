@@ -25,5 +25,7 @@ Trial and error through testing led to a better understanding of scope and where
 - GitHub issues feature was helpful to structure approach and as a reminder to go back and fix bugs
 - Endless googling for information looking for a needle in a haystack to answer my questions
 
-AD564A44-3363-4BDC-A5CA-EAA2DA18C901.jpeg
+## Image
+
+![AD564A44-3363-4BDC-A5CA-EAA2DA18C901](https://github.com/aliehs111/JS-Password-Generator/assets/128503077/3e913ae9-b0c9-4e50-b64c-7331307fd648)
 
