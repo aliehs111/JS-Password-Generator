@@ -60,7 +60,7 @@ function getCriteria() {
   } else {
     alert("Password will NOT include special characters");
   }
- //Validating if user chooses no character types
+  //Validating if user chooses no character types
   if (charTypenum == false && charTypeup == false && charTypelow == false && charTypespec == false) {
     alert("You chose no character types. Please click ok then click the red button to start over")
   }
@@ -76,12 +76,8 @@ function getCriteria() {
     pwLength, charTypenum, charTypeup, charTypelow, charTypespec
   }
 
-  
-
 
 }
-
-
 
 //------------//
 
@@ -97,7 +93,7 @@ function generatePassword() {
   console.log(pwarray)
   return pwarray.join("")
 
-   
+
 }
 
 function getRandom(arr) {
